@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumbo - Test de Orientación Vocacional Ikigai</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>Rumbo</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-item">
+                    <span>🏠</span>
+                    <span>Inicio</span>
+                </div>
+                <div class="nav-item active">
+                    <span>🎓</span>
+                    <span>Rumbo</span>
+                </div>
+                <div class="nav-item">
+                    <span>📚</span>
+                    <span>Oferta Educativa</span>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">U</div>
+                    <span>nombre_usuario</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="welcome-screen">
+                <div class="welcome-content">
+                    <h1 class="welcome-title">Test de Orientación Vocacional Ikigai</h1>
+                    <p class="welcome-subtitle">Descubre tu carrera ideal en el IPN basándote en tu Ikigai</p>
+                    
+                    <div class="ikigai-info">
+                        <h2>¿Qué es el Ikigai?</h2>
+                        <p class="ikigai-description">
+                            El Ikigai es un concepto japonés que significa "razón de ser". Este test te ayudará a encontrar 
+                            la carrera perfecta equilibrando cuatro dimensiones fundamentales:
+                        </p>
+                        
+                        <div class="ikigai-pillars">
+                            <div class="pillar-card pasion">
+                                <h3>🎨 Lo que AMAS (Pasión)</h3>
+                                <p>Tus intereses, temas que te apasionan y actividades que disfrutas.</p>
+                            </div>
+                            <div class="pillar-card vocacion">
+                                <h3>⭐ En lo que eres BUENO (Vocación)</h3>
+                                <p>Tus habilidades académicas, técnicas y competencias naturales.</p>
+                            </div>
+                            <div class="pillar-card profesion">
+                                <h3>💼 Por lo que te PAGAN (Profesión)</h3>
+                                <p>Oportunidades laborales, salarios y demanda del mercado.</p>
+                            </div>
+                            <div class="pillar-card mision">
+                                <h3>🌍 Lo que el mundo NECESITA (Misión)</h3>
+                                <p>El impacto social y los problemas que te importa resolver.</p>
+                            </div>
+                        </div>
+
+                        <div class="test-info">
+                            <p>
+                                <strong>Duración:</strong> 10-15 minutos | <strong>Preguntas:</strong> 40 | <strong>Carreras del IPN:</strong> 70
+                            </p>
+                        </div>
+                    </div>
+
+                    <button class="start-button" onclick="startTest()">Comenzar Test</button>
+                </div>
+            </div>
+
+            <!-- Test Screen -->
+            <div id="testScreen" class="test-screen hidden">
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span id="pilarIndicator" class="pilar-indicator">PASIÓN</span>
+                        <span id="questionCounter" class="question-counter">Pregunta 1 de 40</span>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-content">
+                        <h2 id="questionText" class="question-text"></h2>
+
+                        <div class="likert-scale">
+                            <span class="likert-label">-</span>
+                            <button class="likert-option" onclick="selectAnswer(1)"></button>
+                            <button class="likert-option" onclick="selectAnswer(2)"></button>
+                            <button class="likert-option" onclick="selectAnswer(3)"></button>
+                            <button class="likert-option" onclick="selectAnswer(4)"></button>
+                            <button class="likert-option" onclick="selectAnswer(5)"></button>
+                            <span class="likert-label">+</span>
+                        </div>
+
+                        <div class="navigation-buttons">
+                            <button id="prevButton" class="nav-button prev" onclick="previousQuestion()">
+                                ← Anterior
+                            </button>
+                            <button id="nextButton" class="nav-button next" onclick="nextQuestion()" disabled>
+                                <span id="nextButtonText">Continuar</span> →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="resultsScreen" class="results-screen hidden">
+                <div class="results-content">
+                    <h1 class="results-title">Tus Resultados</h1>
+                    <p class="results-subtitle">
+                        ¡Test completado! Aquí están tus carreras recomendadas basadas en tu Ikigai.
+                    </p>
+                    
+                    <div id="resultsContainer" class="results-cards">
+                        <!-- Los resultados se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/questions.js"></script>
+    <script src="/js/careers.js"></script>
+    <script src="/js/algorithm.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
+
